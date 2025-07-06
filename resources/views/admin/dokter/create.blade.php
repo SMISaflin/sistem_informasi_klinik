@@ -15,11 +15,11 @@
         </div>
         <div class="form-group">
             <label>No HP</label>
-            <input type="text" name="no_hp" class="form-control" required>
+            <input type="number" name="no_hp" class="form-control" required>
         </div>
         <div class="form-group">
             <label>Gambar</label>
-            <input type="file" name="gambar" class="form-control-file" accept="image/*">
+            <input type="file" name="gambar" class="form-control-file" accept="images/*">
         </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
         <a href="{{ route('admin.dokter.index') }}" class="btn btn-secondary">Kembali</a>
