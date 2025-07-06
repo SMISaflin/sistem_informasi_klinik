@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('resep', function (Blueprint $table) {
-    $table->id();
-    $table->foreignId('pasien_id')->constrained('users')->onDelete('cascade');
-    $table->text('deskripsi');
-    $table->enum('status', ['menunggu', 'diproses', 'selesai'])->default('menunggu');
-    $table->timestamps();
+            $table->id();
+            $table->foreignId('pasien_id')->constrained('users')->onDelete('cascade');
+            $table->text('deskripsi');
+            $table->enum('status', ['menunggu', 'diproses', 'selesai'])->default('menunggu');
+            $table->timestamps();
 });
 
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('resep');
+        // Schema::dropIfExists('resep');
     }
 };

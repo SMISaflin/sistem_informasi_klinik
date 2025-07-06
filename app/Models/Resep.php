@@ -9,6 +9,8 @@ use App\Models\User;
 class Resep extends Model
 {
     use HasFactory;
+    
+    protected $table = 'resep';
 
     protected $fillable = ['pasien_id', 'deskripsi', 'status'];
 

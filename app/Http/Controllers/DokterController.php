@@ -19,6 +19,7 @@ class DokterController extends Controller
 
     public function store(Request $request)
 {
+
     $request->validate([
         'nama' => 'required|string|max:255',
         'spesialis' => 'required|string|max:255',
