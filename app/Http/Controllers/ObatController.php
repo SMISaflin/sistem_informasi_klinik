@@ -10,12 +10,12 @@ class ObatController extends Controller
     public function index()
     {
         $obats = Obat::latest()->get();
-        return view('admin.obat.index', compact('obats'));
+        return view('apoteker.obat.index', compact('obat'));
     }
 
     public function create()
     {
-        return view('admin.obat.create');
+        return view('apoteker.obat.create');
     }
 
     public function store(Request $request)
@@ -29,12 +29,12 @@ class ObatController extends Controller
 
         Obat::create($request->all());
 
-        return redirect()->route('admin.obat.index')->with('success', 'Data obat berhasil ditambahkan');
+        return redirect()->route('apoteker.obat.index')->with('success', 'Data obat berhasil ditambahkan');
     }
 
     public function edit(Obat $obat)
     {
-        return view('admin.obat.edit', compact('obat'));
+        return view('apoteker.obat.edit', compact('obat'));
     }
 
     public function update(Request $request, Obat $obat)
@@ -48,12 +48,12 @@ class ObatController extends Controller
 
         $obat->update($request->all());
 
-        return redirect()->route('admin.obat.index')->with('success', 'Data obat berhasil diperbarui');
+        return redirect()->route('apoteker.obat.index')->with('success', 'Data obat berhasil diperbarui');
     }
 
     public function destroy(Obat $obat)
     {
         $obat->delete();
-        return redirect()->route('admin.obat.index')->with('success', 'Data obat berhasil dihapus');
+        return redirect()->route('apoteker.obat.index')->with('success', 'Data obat berhasil dihapus');
     }
 }

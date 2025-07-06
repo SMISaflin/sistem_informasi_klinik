@@ -1,48 +1,41 @@
 @extends('layouts.apoteker')
 
-@section('title', 'Data Obat')
-
 @section('content')
 <div class="container">
-    <h1 class="mb-4">Data Obat</h1>
+    <h1>Data Obat</h1>
+    <a href="{{ route('apoteker.obat.create') }}" class="btn btn-primary mb-3">Tambah Obat</a>
 
-    <a href="{{ route('apoteker.obat.create') }}" class="btn btn-primary mb-3">+ Tambah Obat</a>
-
-    @if (session('success'))
+    @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
     <table class="table table-bordered">
-        <thead class="table-light">
+        <thead>
             <tr>
-                <th>No</th>
                 <th>Nama Obat</th>
+                <th>Jenis Obat</th>
                 <th>Stok</th>
-                <th>Harga</th>
+                <th>Keterangan</th>
                 <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
-            @forelse($obat as $item)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->nama }}</td>
-                    <td>{{ $item->stok }}</td>
-                    <td>Rp{{ number_format($item->harga, 0, ',', '.') }}</td>
-                    <td>
-                        <a href="{{ route('apoteker.obat.edit', $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                        <form action="{{ route('apoteker.obat.destroy', $item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin hapus?')">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-sm btn-danger">Hapus</button>
-                        </form>
-                    </td>
-                </tr>
-            @empty
-                <tr>
-                    <td colspan="5" class="text-center">Belum ada data obat.</td>
-                </tr>
-            @endforelse
+            @foreach($obat as $obat)
+            <tr>
+                <td>{{ $obat->nama_obat }}</td>
+                <td>{{ $obat->jenis_obat }}</td>
+                <td>{{ $obat->stok }}</td>
+                <td>{{ $obat->keterangan }}</td>
+                <td>
+                    <a href="{{ route('apoteker.obat.edit', $obat->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <form action="{{ route('apoteker.obat.destroy', $obat->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus obat ini?')">Hapus</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

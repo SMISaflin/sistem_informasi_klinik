@@ -21,9 +21,10 @@ class ApotekerObatController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
+            'nama_obat' => 'required|string|max:255',
+            'jenis_obat' => 'required|string|max:255',
             'stok' => 'required|integer',
-            'harga' => 'required|numeric',
+            'keterangan' => 'nullable|string',
         ]);
 
         Obat::create($request->all());
