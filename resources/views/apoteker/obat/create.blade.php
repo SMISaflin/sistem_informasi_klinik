@@ -1,9 +1,9 @@
-@extends('layouts.admin')
+@extends('layouts.apoteker')
 
 @section('content')
 <div class="container">
     <h1>Tambah Obat</h1>
-    <form action="{{ route('admin.obat.store') }}" method="POST">
+    <form action="{{ route('apoteker.obat.store') }}" method="POST">
         @csrf
         <div class="form-group">
             <label>Nama Obat</label>
@@ -22,7 +22,7 @@
             <textarea name="keterangan" class="form-control" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
-        <a href="{{ route('admin.obat.index') }}" class="btn btn-secondary">Kembali</a>
+        <a href="{{ route('apoteker.obat.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
 </div>
 @endsection
