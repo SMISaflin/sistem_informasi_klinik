@@ -29,11 +29,12 @@
                 <td>{{ $jadwal->jam_mulai }}</td>
                 <td>{{ $jadwal->jam_selesai }}</td>
                 <td>
-                    <a href="{{ route('admin.jadwal_dokter.edit', $jadwal->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalLihat{{ $jadwal->id }}"><i class="bi bi-eye"></i></button>
+                    <a href="{{ route('admin.jadwal_dokter.edit', $jadwal->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
                     <form action="{{ route('admin.jadwal_dokter.destroy', $jadwal->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus jadwal ini?')">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus jadwal ini?')"><i class="bi bi-trash"></i></button>
                     </form>
                 </td>
             </tr>

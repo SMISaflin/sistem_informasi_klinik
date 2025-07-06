@@ -3,11 +3,6 @@
 @section('content')
 <div class="container">
     <h1>Riwayat Pemeriksaan</h1>
-    <a href="{{ route('admin.riwayat_pemeriksaan.create') }}" class="btn btn-primary mb-3">Tambah Riwayat</a>
-
-    @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
 
     <table class="table table-bordered">
         <thead>
@@ -31,11 +26,11 @@
                 <td>{{ $riwayat->tindakan }}</td>
                 <td>{{ $riwayat->obat->nama_obat }}</td>
                 <td>
-                    <a href="{{ route('admin.riwayat_pemeriksaan.edit', $riwayat->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalLihat{{ $riwayat->id }}"><i class="bi bi-eye"></i></button>
                     <form action="{{ route('admin.riwayat_pemeriksaan.destroy', $riwayat->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus data ini?')">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus data ini?')"><i class="bi bi-trash"></i></button>
                     </form>
                 </td>
             </tr>

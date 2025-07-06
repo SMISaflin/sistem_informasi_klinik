@@ -29,6 +29,7 @@
                 <td>{{ $pasien->tanggal_lahir }}</td>
                 <td>{{ $pasien->jenis_kelamin }}</td>
                 <td>
+                    <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalLihat{{ $pasien->id }}"><i class="bi bi-eye"></i></button>
                     <a href="{{ route('admin.pasien.edit', $pasien->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
                     <form action="{{ route('admin.pasien.destroy', $pasien->id) }}" method="POST" style="display:inline;">
                         @csrf

@@ -23,11 +23,12 @@
                 <td>{{ $poli->nama_poli }}</td>
                 <td>{{ $poli->keterangan }}</td>
                 <td>
-                    <a href="{{ route('admin.poli.edit', $poli->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalLihat{{ $poli->id }}"><i class="bi bi-eye"></i></button>
+                    <a href="{{ route('admin.poli.edit', $poli->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
                     <form action="{{ route('admin.poli.destroy', $poli->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus poli ini?')">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus poli ini?')"><i class="bi bi-trash"></i></button>
                     </form>
                 </td>
             </tr>

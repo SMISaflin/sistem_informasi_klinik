@@ -26,10 +26,10 @@
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ ucfirst($user->role) }}</td>
-                    <td>
+                    <td class=d-flex>
                         <form method="POST" action="{{ route('admin.user.approve', $user->id) }}">
                             @csrf
-                            <button type="submit" class="btn btn-success">Setujui</button>
+                            <button type="submit" class="btn btn-success btn-sm me-2">Setujui</button>
                         </form>
                         
     <form action="{{ route('admin.user.reject', $user->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menolak user ini?');">
