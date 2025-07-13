@@ -29,11 +29,11 @@
                 <td>{{ $pasien->tanggal_lahir }}</td>
                 <td>{{ $pasien->jenis_kelamin }}</td>
                 <td>
-                    <a href="{{ route('admin.pasien.edit', $pasien->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ route('admin.pasien.edit', $pasien->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
                     <form action="{{ route('admin.pasien.destroy', $pasien->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus pasien ini?')">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus pasien ini?')"><i class="bi bi-trash"></i></button>
                     </form>
                 </td>
             </tr>

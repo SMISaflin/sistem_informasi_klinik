@@ -33,12 +33,12 @@
                 <td>{{ $dokter->spesialis }}</td>
                 <td>{{ $dokter->no_hp }}</td>
                 <td>
-                    <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalLihat{{ $dokter->id }}">Lihat</button>
-                    <a href="{{ route('admin.dokter.edit', $dokter->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalLihat{{ $dokter->id }}"><i class="bi bi-eye"></i></button>
+                    <a href="{{ route('admin.dokter.edit', $dokter->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
                     <form action="{{ route('admin.dokter.destroy', $dokter->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus dokter ini?')">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus dokter ini?')"><i class="bi bi-trash"></button>
                     </form>
                 </td>
             </tr>
