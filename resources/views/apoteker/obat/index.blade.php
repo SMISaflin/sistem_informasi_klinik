@@ -27,11 +27,11 @@
                 <td>{{ $obat->stok }}</td>
                 <td>{{ $obat->keterangan }}</td>
                 <td>
-                    <a href="{{ route('apoteker.obat.edit', $obat->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ route('apoteker.obat.edit', $obat->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
                     <form action="{{ route('apoteker.obat.destroy', $obat->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus obat ini?')">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus obat ini?')"><i class="bi bi-trash"></i></button>
                     </form>
                 </td>
             </tr>
