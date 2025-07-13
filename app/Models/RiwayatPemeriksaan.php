@@ -31,4 +31,5 @@ class RiwayatPemeriksaan extends Model
     {
         return $this->belongsTo(Obat::class);
     }
+
 }

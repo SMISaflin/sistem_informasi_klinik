@@ -36,10 +36,8 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('dokter', DokterController::class);
         Route::resource('pasien', PasienController::class);
         Route::resource('poli', PoliController::class);
-        Route::resource('obat', ObatController::class);
         Route::resource('jadwal_dokter', JadwalDokterController::class);
         Route::resource('riwayat_pemeriksaan', RiwayatPemeriksaanController::class);
-
         Route::get('/user-approval', [UserApprovalController::class, 'index'])->name('user.approval');
         Route::post('/user-approval/{id}/approve', [UserApprovalController::class, 'approve'])->name('user.approve');
         Route::post('/user-approval/{id}/reject', [UserApprovalController::class, 'reject'])->name('user.reject');

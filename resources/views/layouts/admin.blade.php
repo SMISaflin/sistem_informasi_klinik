@@ -18,7 +18,6 @@
             <li class="nav-item"><a href="{{ route('admin.pasien.index') }}" class="nav-link text-white">Data Pasien</a></li>
             <li class="nav-item"><a href="{{ route('admin.jadwal_dokter.index') }}" class="nav-link text-white">Jadwal Dokter</a></li>
             <li class="nav-item"><a href="{{ route('admin.poli.index') }}" class="nav-link text-white">Poli</a></li>
-            <li class="nav-item"><a href="{{ route('admin.obat.index') }}" class="nav-link text-white">Obat</a></li>
             <li class="nav-item"><a href="{{ route('admin.riwayat_pemeriksaan.index') }}" class="nav-link text-white">Riwayat Pemeriksaan</a></li>
             <li class="nav-item"><a href="/admin/laporan" class="nav-link text-white">Laporan</a></li>
               <li class="nav-item mt-3">

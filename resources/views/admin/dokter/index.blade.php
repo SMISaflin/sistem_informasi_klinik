@@ -38,7 +38,7 @@
                     <form action="{{ route('admin.dokter.destroy', $dokter->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus dokter ini?')"><i class="bi bi-trash"></button>
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus dokter ini?')"><i class="bi bi-trash"></i></button>
                     </form>
                 </td>
             </tr>

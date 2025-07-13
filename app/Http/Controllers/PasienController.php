@@ -13,18 +13,20 @@ class PasienController extends Controller
         return view('admin.pasien.index', compact('pasiens'));
     }
 
-    public function create()
-    {
-        return view('admin.pasien.create');
-    }
-
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
-            'alamat' => 'required|string',
-            'no_hp' => 'required|string|max:20',
+            'nik' => 'required|string|size:16|unique:pasiens,nik',
+            'nama_lengkap' => 'required|string|max:255',
+            'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
+            'tempat_lahir' => 'required|string|max:100',
             'tanggal_lahir' => 'required|date',
+            'alamat' => 'required|string',
+            'no_hp' => 'required|string|max:15',
+            'pekerjaan' => 'nullable|string|max:100',
+            'status_perkawinan' => 'required|in:Belum Kawin,Kawin,Duda,Janda',
+            'gol_darah' => 'nullable|in:A,B,AB,O',
+            'agama' => 'required|string|max:50',
         ]);
 
         Pasien::create($request->all());
@@ -40,10 +42,17 @@ class PasienController extends Controller
     public function update(Request $request, Pasien $pasien)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
-            'alamat' => 'required|string',
-            'no_hp' => 'required|string|max:20',
+            'nik' => 'required|string|size:16|unique:pasiens,nik,' . $pasien->id,
+            'nama_lengkap' => 'required|string|max:255',
+            'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
+            'tempat_lahir' => 'required|string|max:100',
             'tanggal_lahir' => 'required|date',
+            'alamat' => 'required|string',
+            'no_hp' => 'required|string|max:15',
+            'pekerjaan' => 'nullable|string|max:100',
+            'status_perkawinan' => 'required|in:Belum Kawin,Kawin,Duda,Janda',
+            'gol_darah' => 'nullable|in:A,B,AB,O',
+            'agama' => 'required|string|max:50',
         ]);
 
         $pasien->update($request->all());

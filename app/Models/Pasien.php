@@ -8,12 +8,18 @@ class Pasien extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'nama',
+   protected $fillable = [
+        'nik',
+        'nama_lengkap',
+        'jenis_kelamin',
+        'tempat_lahir',
+        'tanggal_lahir',
         'alamat',
         'no_hp',
-        'tanggal_lahir',
-        'jenis_kelamin',
+        'pekerjaan',
+        'status_perkawinan',
+        'gol_darah',
+        'agama',
     ];
 
     /**
