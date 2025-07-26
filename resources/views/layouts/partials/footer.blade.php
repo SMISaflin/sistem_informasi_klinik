@@ -4,7 +4,7 @@
 
             {{-- Logo dan Alamat --}}
             <div class="col-md-4">
-                <img src="/images/logo-klinik.png" alt="Logo Klinik Cipanas" width="160" class="mb-3">
+                {{-- <img src="/images/logo-klinik.png" alt="Logo Klinik Cipanas" width="160" class="mb-3"> --}}
                 <p class="mb-2">
                     Jl. Cipanas No.7 Panday, Ds. Langensari<br>
                     Kec. Tarogong Kaler, Kabupaten Garut, Jawa Barat 44151
@@ -38,13 +38,13 @@
             <div class="col-md-3">
                 <h6 class="fw-bold">Kontak Kami</h6>
                 <p class="mb-1"><i class="bi bi-telephone-fill me-2"></i> 0853-1518-1800</p>
-                <p class="mb-0"><i class="bi bi-envelope-fill me-2"></i> info@klinikcipanas.com</p>
+                <p class="mb-0"><i class="bi bi-envelope-fill me-2"></i> info@klinikumum.com</p>
             </div>
 
         </div>
     </div>
 
     <div class="text-center bg-primary text-white mt-4 py-3">
-        © {{ date('Y') }} Klinik Cipanas
+        © {{ date('Y') }} Klinik Umum
     </div>
 </footer>
