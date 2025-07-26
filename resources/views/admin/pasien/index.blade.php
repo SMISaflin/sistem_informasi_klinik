@@ -11,7 +11,7 @@
 
   <!-- Table -->
   <table class="table table-bordered table-striped">
-    <thead class="table-dark">
+    <thead class="table-dark text-center">
       <tr>
         <th>No</th>
         <th>NIK</th>
@@ -34,13 +34,13 @@
         <td>
               <!-- Tombol Lihat -->
   <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalLihatPasien{{ $pasien->id }}">
-    Lihat
+    <i class="bi bi-eye"></i>
   </button>
-          <a href="{{ route('admin.pasien.edit', $pasien->id) }}" class="btn btn-warning btn-sm">Edit</a>
+          <a href="{{ route('admin.pasien.edit', $pasien->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
           <form action="{{ route('admin.pasien.destroy', $pasien->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus?')">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+            <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
           </form>
         </td>
       </tr>

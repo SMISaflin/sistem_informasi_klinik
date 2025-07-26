@@ -27,15 +27,22 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ ucfirst($user->role) }}</td>
                     <td>
-                        <form method="POST" action="{{ route('admin.user.approve', $user->id) }}">
-                            @csrf
-                            <button type="submit" class="btn btn-success">Setujui</button>
-                        </form>
-                        
-    <form action="{{ route('admin.user.reject', $user->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menolak user ini?');">
+                        <div class="d-flex gap-2">
+    <form method="POST" action="{{ route('admin.user.approve', $user->id) }}">
         @csrf
-        <button type="submit" class="btn btn-danger btn-sm">Tolak</button>
+        <button type="submit" class="btn btn-success btn-sm">
+            <i class="bi bi-check-circle"></i>
+        </button>
     </form>
+
+    <form action="{{ route('admin.user.reject', $user->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menolak user ini?');">
+        @csrf
+        <button type="submit" class="btn btn-danger btn-sm">
+            <i class="bi bi-x-circle"></i>
+        </button>
+    </form>
+</div>
+
                     </td>
                 </tr>
                 @endforeach
