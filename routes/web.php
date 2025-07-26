@@ -30,6 +30,25 @@ Route::get('/logout', function () {
     return redirect('/login');
 })->name('logout');
 
+   Route::get('/', [UserDokterController::class, 'tampilUntukPasien'])->name('dashboard');
+    Route::get('/jadwal_dokterr', [UserDokterController::class, 'tampiljadwalDokter'])->name('jadwalDokter');
+
+// Tentang Kami
+Route::get('/tentang_kamii', function () {
+    return view('tentang_kami');
+})->name('tentang');
+
+// Jadwal dan Dokter
+
+// Fasilitas & Pelayanan
+Route::get('/pelayanann', function () {
+    return view('pelayanan');
+})->name('pelayanan');
+
+// Hubungi Kami
+Route::get('/hubungi_kamii', function () {
+    return view('hubungi_kami');
+})->name('kontak');
 
 // Route::get('/', function () {
 //     return view('pasien.dashboard'); // atau view landing pasien non-login
@@ -66,15 +85,19 @@ Route::middleware(['role:dokter'])->prefix('dokter')->name('dokter.')->group(fun
     Route::get('/pasien', [App\Http\Controllers\Dokter\PasienController::class, 'index'])->name('pasien.index');
     Route::get('/resep', [App\Http\Controllers\Dokter\ResepController::class, 'index'])->name('resep.index');
     Route::post('/resep/store', [App\Http\Controllers\Dokter\ResepController::class, 'store'])->name('resep.store');
+    Route::resource('riwayat', \App\Http\Controllers\Dokter\RiwayatPemeriksaanController::class);
+      Route::get('/riwayat/tambah', [App\Http\Controllers\Dokter\RiwayatController::class, 'create'])->name('dokter.riwayat.create');
+    Route::post('/riwayat/store', [App\Http\Controllers\Dokter\RiwayatController::class, 'store'])->name('dokter.riwayat.store');
 });
 
     // ================= PASIEN =================
     Route::middleware(['role:pasien'])->prefix('pasien')->name('pasien.')->group(function () {
-         Route::get('/dashboard', [UserDokterController::class, 'tampilUntukPasien'])->name('dashboard');
+        Route::get('/dashboard', [UserDokterController::class, 'tampilUntukPasien'])->name('dashboard');
        Route::get('/jadwal_dokter', [UserDokterController::class, 'tampiljadwalDokter'])->name('jadwalDokter');
         Route::view('/tentang_kami', 'pasien.tentang_kami')->name('tentang_kami');
         Route::view('/pelayanan', 'pasien.pelayanan')->name('pelayanan');
         Route::view('/hubungi_kami', 'pasien.hubungi_kami')->name('hubungi_kami');
          Route::post('/regpasien', [RegPasienController::class, 'store'])->name('regpasien.store');
+        
     });
 });

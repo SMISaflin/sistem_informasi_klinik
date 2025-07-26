@@ -20,9 +20,9 @@
                 <a href="{{ route('dokter.jadwal.index') }}" class="nav-link text-white">Jadwal</a>
 
             </li>
-            <li class="nav-item">
-                <a href="" class="nav-link text-white">Riwayat Pemeriksaan</a>
-            </li>
+           <li class="nav-item">
+    <a href="{{ route('dokter.riwayat.index') }}" class="nav-link text-white">Riwayat Pemeriksaan</a>
+</li>
             <li class="nav-item mt-3">
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf

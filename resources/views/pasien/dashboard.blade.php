@@ -1,4 +1,4 @@
-@extends('layouts.pasien')
+@extends('layouts.pasienpublic')
 
 @section('content')
     <div class="vh-100 d-flex justify-content-center align-items-center text-center" >
@@ -6,9 +6,11 @@
     <div>
         <h2 class="fw-bold display-4">Selamat Datang di Klinik Umum</h2>
         <p class="lead fw-semibold">Pelayanan kesehatan terpercaya untuk Anda dan keluarga</p>
-        <a href="#" class="btn btn-success mt-4 px-4 py-2 fs-5" data-bs-toggle="modal" data-bs-target="#modalTambahPasien">
-            <i class="bi bi-person-plus-fill me-2"></i> Daftar Pasien Sekarang
-        </a>
+        @auth
+<a href="#" class="btn btn-success mt-4 px-4 py-2 fs-5" data-bs-toggle="modal" data-bs-target="#modalTambahPasien">
+    <i class="bi bi-person-plus-fill me-2"></i> Daftar Pasien Sekarang
+</a>
+@endauth
     </div>
 
 </div>
