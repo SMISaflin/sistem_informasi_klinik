@@ -21,15 +21,21 @@ class ApotekerObatController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_obat' => 'required|string|max:255',
-            'jenis_obat' => 'required|string|max:255',
+            'nama' => 'required|string|max:255',
+            'jenis' => 'required|string|max:255',
             'stok' => 'required|integer',
             'keterangan' => 'nullable|string',
         ]);
 
-        Obat::create($request->all());
+        Obat::create([
+            'nama_obat' => $request->nama,
+            'jenis_obat' => $request->jenis,
+            'stok' => $request->stok,
+            'keterangan' => $request->keterangan,
+        ]);
 
         return redirect()->route('apoteker.obat.index')->with('success', 'Obat berhasil ditambahkan.');
+
     }
 
     public function show($id)
@@ -48,16 +54,32 @@ class ApotekerObatController extends Controller
     {
         $obat = Obat::findOrFail($id);
 
+        // $request->validate([
+        //     'nama' => 'required|string|max:255',
+        //     'stok' => 'required|integer',
+        //     'harga' => 'required|numeric',
+        // ]);
+
+        // $obat->update($request->all());
+
+        // return redirect()->route('apoteker.obat.index')->with('success', 'Obat berhasil diperbarui.');
+
         $request->validate([
-            'nama' => 'required|string|max:255',
+            'nama_obat' => 'required|string|max:255',
+            'jenis_obat' => 'required|string|max:255',
             'stok' => 'required|integer',
-            'harga' => 'required|numeric',
+            'keterangan' => 'nullable|string',
         ]);
 
-        $obat->update($request->all());
+        $obat->update([
+            'nama_obat' => $request->nama_obat,
+            'jenis_obat' => $request->jenis_obat,
+            'stok' => $request->stok,
+            'keterangan' => $request->keterangan,
+        ]);
 
         return redirect()->route('apoteker.obat.index')->with('success', 'Obat berhasil diperbarui.');
-    }
+     }
 
     public function destroy($id)
     {
