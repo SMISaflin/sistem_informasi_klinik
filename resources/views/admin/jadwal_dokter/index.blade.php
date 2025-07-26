@@ -10,14 +10,14 @@
     @endif
 
     <table class="table table-bordered">
-        <thead>
+        <thead class="text-center">
             <tr>
                 <th>Nama Dokter</th>
                 <th>Poli</th>
                 <th>Hari</th>
                 <th>Jam Mulai</th>
                 <th>Jam Selesai</th>
-                <th>Aksi</th>
+                <th class="" style="width: 85px">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -29,11 +29,11 @@
                 <td>{{ $jadwal->jam_mulai }}</td>
                 <td>{{ $jadwal->jam_selesai }}</td>
                 <td>
-                    <a href="{{ route('admin.jadwal_dokter.edit', $jadwal->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ route('admin.jadwal_dokter.edit', $jadwal->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
                     <form action="{{ route('admin.jadwal_dokter.destroy', $jadwal->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus jadwal ini?')">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus jadwal ini?')"><i class="bi bi-trash"></i></button>
                     </form>
                 </td>
             </tr>

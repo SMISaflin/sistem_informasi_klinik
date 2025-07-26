@@ -13,11 +13,11 @@
             <label>Spesialis</label>
             <input type="text" name="spesialis" class="form-control" required>
         </div>
-        <div class="form-group">
+        <div class="form-group mb-2">
             <label>No HP</label>
             <input type="number" name="no_hp" class="form-control" required>
         </div>
-        <div class="form-group">
+        <div class="form-group mb-2">
             <label>Gambar</label>
             <input type="file" name="gambar" class="form-control-file" accept="images/*">
         </div>

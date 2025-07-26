@@ -10,18 +10,18 @@
     @endif
 
     <table class="table table-bordered">
-        <thead>
+        <thead class="text-center">
             <tr>
-                <th>Gambar</th>
+                <th class="" style="width: 120px">Gambar</th>
                 <th>Nama</th>
                 <th>Spesialis</th>
                 <th>No HP</th>
-                <th>Aksi</th>
+                <th class="" style="width: 120px">Aksi</th>
             </tr>
         </thead>
         <tbody>
             @foreach($dokters as $dokter)
-            <tr>
+            <tr class="text-center">
                 <td>
                     @if($dokter->gambar)
                         <img src="{{ asset($dokter->gambar) }}" alt="Gambar Dokter" width="80" height="80" style="object-fit: cover; border-radius: 5px;">
@@ -32,7 +32,8 @@
                 <td>{{ $dokter->nama }}</td>
                 <td>{{ $dokter->spesialis }}</td>
                 <td>{{ $dokter->no_hp }}</td>
-                <td>
+                <td class="text-center">
+                  <div class="d-flex justify-content-center gap-1">
                     <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalLihat{{ $dokter->id }}"><i class="bi bi-eye"></i></button>
                     <a href="{{ route('admin.dokter.edit', $dokter->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
                     <form action="{{ route('admin.dokter.destroy', $dokter->id) }}" method="POST" style="display:inline;">
@@ -40,6 +41,7 @@
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus dokter ini?')"><i class="bi bi-trash"></i></button>
                     </form>
+                  </div>
                 </td>
             </tr>
 

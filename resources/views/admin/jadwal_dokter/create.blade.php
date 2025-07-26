@@ -29,7 +29,7 @@
             <label>Jam Mulai</label>
             <input type="time" name="jam_mulai" class="form-control" required>
         </div>
-        <div class="form-group">
+        <div class="form-group mb-2">
             <label>Jam Selesai</label>
             <input type="time" name="jam_selesai" class="form-control" required>
         </div>

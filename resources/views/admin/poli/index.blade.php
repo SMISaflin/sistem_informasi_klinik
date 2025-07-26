@@ -10,11 +10,11 @@
     @endif
 
     <table class="table table-bordered">
-        <thead>
+        <thead class="text-center">
             <tr>
-                <th>Nama Poli</th>
+                <th class="" style="width: 200px">Nama Poli</th>
                 <th>Keterangan</th>
-                <th>Aksi</th>
+                <th class="" style="width: 90px">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -23,11 +23,11 @@
                 <td>{{ $poli->nama_poli }}</td>
                 <td>{{ $poli->keterangan }}</td>
                 <td>
-                    <a href="{{ route('admin.poli.edit', $poli->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ route('admin.poli.edit', $poli->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
                     <form action="{{ route('admin.poli.destroy', $poli->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus poli ini?')">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus poli ini?')"><i class="bi bi-trash"></i></button>
                     </form>
                 </td>
             </tr>

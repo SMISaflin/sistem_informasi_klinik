@@ -9,7 +9,7 @@
             <label>Nama Poli</label>
             <input type="text" name="nama_poli" class="form-control" required>
         </div>
-        <div class="form-group">
+        <div class="form-group mb-2">
             <label>Keterangan</label>
             <textarea name="keterangan" class="form-control" required></textarea>
         </div>
