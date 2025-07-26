@@ -172,18 +172,14 @@
             </div>
         </div>
     </div>
+
 @endsection
+
 <!-- MODAL TAMBAH PASIEN -->
 <div class="modal fade" id="modalTambahPasien" tabindex="-1" aria-labelledby="modalTambahPasienLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      @if (session('success'))
-  <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
-    {{ session('success') }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-@endif
-      <form action="{{ route('pasien.regpasien.store') }}" method="POST">
+      <form action="{{ route('admin.pasien.store') }}" method="POST">
         @csrf
         <div class="modal-header">
           <h5 class="modal-title" id="modalTambahPasienLabel">Form Tambah Pasien</h5>
@@ -193,7 +189,7 @@
           <div class="row mb-3">
             <div class="col-md-6">
               <label>NIK</label>
-              <input type="number" name="nik" class="form-control" required>
+              <input type="text" name="nik" class="form-control" required>
             </div>
             <div class="col-md-6">
               <label>Nama Lengkap</label>
@@ -223,7 +219,7 @@
             </div>
             <div class="col-md-6">
               <label>No. HP</label>
-              <input type="number" name="no_hp" class="form-control" required>
+              <input type="text" name="no_hp" class="form-control" required>
             </div>
           </div>
 
@@ -268,7 +264,6 @@
           <button type="submit" class="btn btn-primary">Simpan</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
         </div>
-
       </form>
     </div>
   </div>

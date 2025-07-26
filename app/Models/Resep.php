@@ -19,4 +19,10 @@ class Resep extends Model
     {
         return $this->belongsTo(User::class, 'pasien_id');
     }
+
+public function dokter()
+{
+    return $this->belongsTo(Dokter::class);
+}
+
 }

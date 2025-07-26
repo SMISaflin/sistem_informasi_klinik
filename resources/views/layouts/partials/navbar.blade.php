@@ -7,11 +7,11 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="/pasien/dashboard">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-link" href="/pasien/tentang_kami">Tentang Kami</a></li>
-                <li class="nav-item"><a class="nav-link" href="/pasien/jadwal_dokter">Jadwal dan Dokter</a></li>
-                <li class="nav-item"><a class="nav-link" href="/pasien/pelayanan">Fasilitas & Pelayanan</a></li>
-                <li class="nav-item"><a class="nav-link" href="/pasien/hubungi_kami">Hubungi Kami</a></li>
+                <li class="nav-item"><a class="nav-link" href="/">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="tentang_kami">Tentang Kami</a></li>
+                <li class="nav-item"><a class="nav-link" href="jadwal_dokter">Jadwal dan Dokter</a></li>
+                <li class="nav-item"><a class="nav-link" href="pelayanan">Fasilitas & Pelayanan</a></li>
+                <li class="nav-item"><a class="nav-link" href="hubungi_kami">Hubungi Kami</a></li>
                  <li class="nav-item">
                     <form action="{{ route('logout') }}" method="GET" onsubmit="return confirm('Yakin ingin logout?')">
                         @csrf
