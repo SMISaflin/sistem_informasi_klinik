@@ -2,76 +2,95 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Apoteker - @yield('title')</title>
+    <title>@yield('title')</title>
+
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Bootstrap Icons (untuk ikon) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
         body {
-            min-height: 100vh;
             display: flex;
+            min-height: 100vh;
+            margin: 0;
         }
+
         .sidebar {
-            width: 240px;
-            background-color: #198754; /* Bootstrap success */
+            width: 230px;
+            background-color: #1f7a1f;
+            color: #fff;
+            padding-top: 20px;
+            position: fixed;
+            height: 100%;
         }
+
+        .sidebar h4 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
         .sidebar a {
             color: white;
             display: block;
             padding: 12px 20px;
             text-decoration: none;
+            font-size: 16px;
         }
-        .sidebar a:hover, .sidebar .active {
-            background-color: #146c43;
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background-color: #145214;
+            color: #fff;
         }
-        .content {
-            flex: 1;
-            padding: 20px;
+
+        .sidebar i {
+            margin-right: 10px;
+        }
+
+        .main-content {
+            margin-left: 230px;
+            padding: 30px;
+            width: 100%;
+            background-color: #f9f9f9;
         }
     </style>
 </head>
 <body>
 
     <!-- Sidebar -->
-    <!-- Sidebar -->
-<div class="sidebar">
-    <h4 class="text-white text-center py-4 border-bottom border-white">APOTEKER</h4>
+    <div class="sidebar">
+        <h4>APOTEKER</h4>
+        <hr style="color: white;">
 
-    <a href="{{ route('apoteker.dashboard') }}" class="{{ request()->routeIs('apoteker.dashboard') ? 'active' : '' }}">
-        🏠 Dashboard
-    </a>
-
-    <a href="{{ route('apoteker.obat.index') }}" class="{{ request()->routeIs('apoteker.obat.*') ? 'active' : '' }}">
-        💊 Manajemen Obat
-    </a>
-
-    <a href="{{ route('apoteker.resep.index') }}" class="{{ request()->routeIs('apoteker.resep.*') ? 'active' : '' }}">
-        📋 Resep Obat
-    </a>
-
-    {{-- Laporan Distribusi (opsional, belum ada route-nya) --}}
-    <a href="#" class="{{ request()->routeIs('apoteker.laporan') ? 'active' : '' }}">
-        📄 Laporan Distribusi
-    </a>
-
-    <a href="{{ route('logout') }}" onclick="return confirm('Yakin ingin logout?')">
-        🚪 Logout
-    </a>
-</div>
-
-
-    <!-- Main Content -->
-    <div class="content">
-        <nav class="navbar navbar-light bg-light mb-4 rounded shadow-sm">
-            <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1">Sistem Informasi Klinik - Apoteker</span>
-            </div>
-        </nav>
-
-        @yield('content')
+        <a href="{{ route('apoteker.dashboard') }}" class="{{ Request::routeIs('apoteker.dashboard') ? 'active' : '' }}">
+            <i class="bi bi-house-door-fill"></i> Dashboard
+        </a>
+        <a href="{{ route('apoteker.obat.index') }}" class="{{ Request::routeIs('apoteker.obat.*') ? 'active' : '' }}">
+            <i class="bi bi-capsule"></i> Manajemen Obat
+        </a>
+        <a href="{{ route('apoteker.resep.index') }}" class="{{ Request::routeIs('apoteker.resep.*') ? 'active' : '' }}">
+            <i class="bi bi-file-medical"></i> Resep Obat
+        </a>
+        {{-- <a href="{{ route('apoteker.laporan.distribusi') }}" class="{{ Request::routeIs('apoteker.laporan.*') ? 'active' : '' }}">
+            <i class="bi bi-clipboard-data"></i> Laporan Distribusi
+        </a> --}}
+        <a href="{{ route('logout') }}"
+           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <i class="bi bi-box-arrow-right"></i> Logout
+        </a>
+        <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
+            @csrf
+        </form>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Konten Utama -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <h5 class="mb-4">Sistem Informasi Klinik - Apoteker</h5>
+            @yield('content')
+        </div>
+    </div>
+
 </body>
 </html>
