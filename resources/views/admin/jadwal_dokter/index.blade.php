@@ -17,7 +17,7 @@
                 <th>Hari</th>
                 <th>Jam Mulai</th>
                 <th>Jam Selesai</th>
-                <th class="" style="width: 85px">Aksi</th>
+                <th class="" style="width: 90px">Aksi</th>
             </tr>
         </thead>
         <tbody>
