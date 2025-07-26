@@ -2,7 +2,12 @@
 @section('content')
 <div class="container">
     <h1 class="mb-4">Daftar Pasien</h1>
-
+@if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
     <form method="GET" action="{{ route('dokter.pasien.index') }}" class="mb-3">
     <div class="input-group">
         <input type="text" name="search" class="form-control" placeholder="Cari nama pasien..." value="{{ request('search') }}">
@@ -71,6 +76,10 @@
                     <label for="resep" class="form-label">Resep</label>
                     <textarea name="resep" class="form-control" required></textarea>
                 </div>
+                <div class="mb-3">
+    <label for="deskripsi" class="form-label">Deskripsi</label>
+    <textarea name="deskripsi" class="form-control" required></textarea>
+</div>
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Simpan Resep</button>

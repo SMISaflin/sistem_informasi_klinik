@@ -59,14 +59,14 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/resep/{id}/proses', [ResepController::class, 'proses'])->name('resep.proses');
     });
 
-    // ================= DOKTER =================
-    Route::middleware(['role:dokter'])->prefix('dokter')->name('dokter.')->group(function () {
-        Route::view('/dashboard', 'dokter.dashboard')->name('dashboard');
-        Route::get('/pasien', [App\Http\Controllers\Dokter\PasienController::class, 'index'])->name('pasien.index');
-Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
-Route::post('/resep/store', [App\Http\Controllers\Dokter\ResepController::class, 'store'])->name('resep.store');
-    });
-
+// ================= DOKTER =================
+Route::middleware(['role:dokter'])->prefix('dokter')->name('dokter.')->group(function () {
+    Route::view('/dashboard', 'dokter.dashboard')->name('dashboard');
+        Route::get('/jadwal', [App\Http\Controllers\Dokter\JadwalController::class, 'index'])->name('jadwal.index');
+    Route::get('/pasien', [App\Http\Controllers\Dokter\PasienController::class, 'index'])->name('pasien.index');
+    Route::get('/resep', [App\Http\Controllers\Dokter\ResepController::class, 'index'])->name('resep.index');
+    Route::post('/resep/store', [App\Http\Controllers\Dokter\ResepController::class, 'store'])->name('resep.store');
+});
 
     // ================= PASIEN =================
     Route::middleware(['role:pasien'])->prefix('pasien')->name('pasien.')->group(function () {

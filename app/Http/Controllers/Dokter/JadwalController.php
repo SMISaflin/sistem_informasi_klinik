@@ -2,22 +2,16 @@
 namespace App\Http\Controllers\Dokter;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\JadwalDokter;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Dokter;
 
 class JadwalController extends Controller
 {
     public function index()
     {
-        // Ambil user login (dokter), lalu cari id-nya di tabel dokters
-        $dokter = Auth::user();
-
-        // Asumsikan 1 user = 1 dokter
-        $jadwals = JadwalDokter::with('poli')
-            ->where('dokter_id', $dokter->id)
-            ->orderBy('hari')
-            ->get();
-
-        return view('dokter.jadwal', compact('jadwals'));
+        $jadwals = JadwalDokter::with(['dokter', 'poli'])->get();
+        $dokters = Dokter::all(); // Tambahkan ini jika digunakan di view
+        return view('dokter.jadwal.index', compact('jadwals', 'dokters'));
     }
 }

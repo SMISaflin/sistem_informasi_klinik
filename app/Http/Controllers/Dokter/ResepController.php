@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Dokter;
 
 use App\Http\Controllers\Controller;
@@ -8,22 +9,35 @@ use Illuminate\Support\Facades\Auth;
 
 class ResepController extends Controller
 {
+    /**
+     * Menampilkan daftar semua resep untuk dokter.
+     */
+    public function index()
+    {
+        $reseps = Resep::with(['pasien', 'dokter'])->latest()->get();
+        return view('dokter.resep.index', compact('reseps'));
+    }
+
+    /**
+     * Menyimpan resep baru dari dokter untuk pasien.
+     */
     public function store(Request $request)
     {
         $request->validate([
-            'pasien_id' => 'required|exists:pasiens,id',
-            'deskripsi' => 'required|string',
-            'obat' => 'required|string',
+            'pasien_id' => 'required|exists:users,id', // asumsinya pasien adalah user
+            'diagnosa' => 'required|string|max:1000',
+            'resep' => 'required|string|max:2000',
+            'deskripsi' => 'required|string|max:1000',
         ]);
 
         Resep::create([
-            'dokter_id' => Auth::user()->dokter->id, // asumsi user terhubung ke dokter
             'pasien_id' => $request->pasien_id,
+            'dokter_id' => Auth::id(),
+            'diagnosa' => $request->diagnosa,
+            'resep' => $request->resep,
             'deskripsi' => $request->deskripsi,
-            'obat' => $request->obat,
-            'status' => 'menunggu',
         ]);
 
-        return redirect()->back()->with('success', 'Resep berhasil dikirim.');
+        return redirect()->back()->with('success', 'Resep berhasil disimpan.');
     }
 }
