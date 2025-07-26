@@ -8,6 +8,8 @@ class ApotekerDashboardController extends Controller
 {
     public function index()
     {
+        
         return view('apoteker.dashboard');
     }
+    
 }
