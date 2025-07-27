@@ -37,7 +37,7 @@
         <div class="col-md-4">
             <div class="card h-100 shadow-sm border-0">
                 <div class="card-body text-center">
-                    <i class="bi bi-tooth-fill text-success fs-1 mb-3"></i>
+                    <i class="fas fa-tooth text-success fs-1 mb-3"></i>
                     <h5 class="card-title">Klinik Gigi</h5>
                     <p class="card-text">Perawatan gigi, pembersihan karang, tambal, cabut, dan konsultasi gigi anak.</p>
                 </div>
@@ -85,13 +85,13 @@
     <div class="row text-center g-4">
         <!-- Layanan 1 -->
         <div class="col-md-4 col-sm-6">
-            <img src="/images/icons/medical-checkup.png" alt="Medical Check Up" width="80" class="mb-2">
+            <img src="{{ asset('images/icons/medical-checkup.png') }}" alt="Medical Check Up" width="80" class="mb-2">
             <p class="fw-semibold">Medical Check Up<br>Kesehatan dan Kerja</p>
         </div>
 
         <!-- Layanan 2 -->
         <div class="col-md-4 col-sm-6">
-            <img src="/images/icons/laboratorium.png" alt="Laboratorium" width="80" class="mb-2">
+            <img src="{{ asset('images/icons/laboratorium.png') }}" alt="Laboratorium" width="80" class="mb-2">
             <p class="fw-semibold">Laboratorium Klinik</p>
         </div>
 
@@ -103,19 +103,19 @@
 
         <!-- Layanan 4 -->
         <div class="col-md-4 col-sm-6">
-            <img src="/images/icons/usg.png" alt="USG" width="80" class="mb-2">
+            <img src="{{ asset('images/icons/usg.png') }}" alt="USG" width="80" class="mb-2">
             <p class="fw-semibold">USG</p>
         </div>
 
         <!-- Layanan 5 -->
         <div class="col-md-4 col-sm-6">
-            <img src="/images/icons/kerjasama.png" alt="Kerja Sama" width="80" class="mb-2">
+            <img src="{{ asset('images/icons/kerjasama.png') }}" alt="Kerja Sama" width="80" class="mb-2">
             <p class="fw-semibold">Kerja sama<br>Kegiatan Kesehatan</p>
         </div>
 
         <!-- Layanan 6 -->
         <div class="col-md-4 col-sm-6">
-            <img src="/images/icons/surat-sehat.png" alt="Surat Sehat" width="80" class="mb-2">
+            <img src="{{ asset('images/icons/surat-sehat.png') }}" alt="Surat Sehat" width="80" class="mb-2">
             <p class="fw-semibold">Surat Keterangan<br>Sehat dan Buta Warna</p>
         </div>
     </div>
@@ -133,8 +133,8 @@
             <span class="badge bg-light text-primary px-3 py-2 mb-2 fw-semibold">TENTANG KAMI</span>
             <h2 class="fw-bold text-success">Sahabat Keluarga Sehat</h2>
             <p class="text-muted">
-                Klinik Cipanas berintegrasi dan berfokus dalam memberikan pelayanan kesehatan, pengobatan dan pencegahan penyakit.
-                Untuk mencapai kepedulian di atas dan juga pengembangannya, maka Klinik Cipanas harus terus meningkatkan kualitas pelayanan
+                Klinik Umum berintegrasi dan berfokus dalam memberikan pelayanan kesehatan, pengobatan dan pencegahan penyakit.
+                Untuk mencapai kepedulian di atas dan juga pengembangannya, maka Klinik Umum harus terus meningkatkan kualitas pelayanan
                 kesehatan yang baik dan akan terus bertransformasi dalam mengikuti teknologi kesehatan.
             </p>
             <ul class="list-unstyled">
@@ -156,7 +156,7 @@
 </div>
 <div class="container my-5">
     <div class="text-center mb-5">
-        <h2 class="fw-bold text-success">Dokter di Klinik Cipanas</h2>
+        <h2 class="fw-bold text-success">Dokter di Klinik Umum</h2>
         <p class="text-muted">Menyediakan pelayanan penunjang kesehatan yang lengkap, terjangkau dan terstandar.</p>
     </div>
       @include('layouts.partials.dokter', ['dokters' => $dokters])
