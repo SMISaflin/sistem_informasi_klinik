@@ -25,7 +25,7 @@
         </div>
 
         <div class="col-md-6 text-center">
-            <img src="https://via.placeholder.com/500x300?text=Foto+Klinik" class="img-fluid rounded shadow-sm" alt="Foto Klinik">
+            <img src="/images/icons/Home_slide_klinik.png" class="img-fluid rounded shadow-sm" alt="Foto Klinik">
         </div>
     </div>
 
