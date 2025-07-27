@@ -6,9 +6,10 @@
     <div>
         <h2 class="fw-bold display-4">Selamat Datang di Klinik Umum</h2>
         <p class="lead fw-semibold">Pelayanan kesehatan terpercaya untuk Anda dan keluarga</p>
-        <a href="#" class="btn btn-success mt-4 px-4 py-2 fs-5" data-bs-toggle="modal" data-bs-target="#modalTambahPasien">
-            <i class="bi bi-person-plus-fill me-2"></i> Daftar Pasien Sekarang
-        </a>
+       <a href="#" class="btn btn-success mt-4 px-4 py-2 fs-5" data-bs-toggle="modal" data-bs-target="#modalPilihPoli">
+    <i class="bi bi-person-plus-fill me-2"></i> Daftar Pasien Sekarang
+</a>
+
     </div>
 
 </div>
@@ -174,6 +175,29 @@
     </div>
 
 @endsection
+<!-- MODAL PILIH POLI -->
+<div class="modal fade" id="modalPilihPoli" tabindex="-1" aria-labelledby="modalPilihPoliLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Pilih Poli</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+      </div>
+      <div class="modal-body">
+        <select class="form-select" id="selectPoli">
+          <option selected disabled>-- Pilih Poli --</option>
+          <option value="Umum">Poli Umum</option>
+          <option value="Gigi">Poli Gigi</option>
+          <option value="Kebidanan">Poli Kebidanan</option>
+          <!-- Tambahkan jika ada poli lain -->
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="lanjutDaftar">Lanjut</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- MODAL TAMBAH PASIEN -->
 <div class="modal fade" id="modalTambahPasien" tabindex="-1" aria-labelledby="modalTambahPasienLabel" aria-hidden="true">
